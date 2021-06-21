@@ -10,7 +10,6 @@ package com.boulanger.eticket.apimongo.domain.mongo;
 
 import lombok.Builder;
 import lombok.Value;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
@@ -28,19 +27,19 @@ public class WithdrawalTicket {
 	private Boolean isFromDrive;
 	private String siteId;
 	private Integer driveTerminal;
-	private List<LineWithdrawal> lines;
+	private List<WithdrawalLine> lines;
 	private String saleId;
 	private String customerId;
 	private String customerName;
 	private String customerFirstName;
 	private String customerPhoneNumber;
-	private LineWithdrawal lineWithdrawals;
+	private WithdrawalLine withdrawalLine;
 
 
 	@Value
 	@Builder
-	public static class LineWithdrawal{
-		private int lineId;
+	public static class WithdrawalLine {
+		private Integer lineId;
 		private String productSapId;
 		private int quantity;
 

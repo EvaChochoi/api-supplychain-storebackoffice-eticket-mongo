@@ -24,7 +24,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -364,6 +366,7 @@ class StoredTicketToStoreControllerTest {
 
         StoredTicket savedTicket2 = storedTicketMongoRepository.findByEventId("F905010203-2-W");
         assertThat(savedTicket2).isNotNull();
+        assertThat(savedTicket2.getLine()).isNotNull();
         assertThat(savedTicket2.getSaleId()).isEqualTo("F905010203");
         assertThat(savedTicket2.getLine()).isEqualTo(2);
     }

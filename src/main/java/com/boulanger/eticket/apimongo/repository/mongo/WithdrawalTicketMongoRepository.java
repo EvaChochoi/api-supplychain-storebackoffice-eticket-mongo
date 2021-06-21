@@ -32,7 +32,7 @@ public interface WithdrawalTicketMongoRepository extends MongoRepository<Withdra
      * @return a list of {@link WithdrawalTicket}
      */
     @Query("{'$and':[ { 'saleId' : ?0 }, {'$and' : [ { 'siteId' : ?1 }, { 'line' : ?2 } ] } ] }")
-    List<WithdrawalTicket> findBySaleAndSitedAndLine(final String saleId, final String siteId, final WithdrawalTicket.LineWithdrawal line);
+    List<WithdrawalTicket> findBySaleAndSitedAndLine(final String saleId, final String siteId, final WithdrawalTicket.WithdrawalLine line);
 
     /**
      * Find a withdrawal ticket by this order's number

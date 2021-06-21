@@ -119,14 +119,10 @@ public class TicketController {
 		 *
 		 */
 
-		List<StoredTicket> storedTicketList = new ArrayList<StoredTicket>();
-		for(WithdrawalTicket.LineWithdrawal lineWithdrawal : withdrawalTicket.getLines()){
-			StoredTicket storedTicket = ticketMapper.withdrawalToStoredTicket(withdrawalTicket, lineWithdrawal);
-			int lineId = lineWithdrawal.getLineId();
-			lineId++;
+		List<StoredTicket> storedTicketList = new ArrayList<>();
+		for(WithdrawalTicket.WithdrawalLine withdrawalLine : withdrawalTicket.getLines()){
+			StoredTicket storedTicket = ticketMapper.withdrawalToStoredTicket(withdrawalTicket, withdrawalLine);
 			storedTicketList.add(storedTicket);
-
-
 			ticketService.register(storedTicket);
 		}
 		return storedTicketList;

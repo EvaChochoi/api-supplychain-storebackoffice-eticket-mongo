@@ -89,7 +89,7 @@ public class StoredTicket {
 	public static class Customer {
 
 		private String identification;
-		private String name;
+		private String lastName;
 		private String firstName;
 		private String phoneNumber;
 
