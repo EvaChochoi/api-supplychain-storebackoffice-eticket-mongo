@@ -1,0 +1,24 @@
+{
+	"eventDate" : "2021-06-11T10:29:34.000Z",
+	"isFromDrive" : false,
+	"isWithdrawalTicket": true,
+	"siteId" : "F022",
+	"saleId" : "F905010203",
+	"lines" : [
+		{
+		"lineId" : 1,
+		"productSapId" : "000000000001000000",
+		"quantity" : 3
+		},
+		{
+		"line" : 2,
+		"productSapId" : "000000000001000001",
+		"quantity" : 1
+		}
+	],
+	"customerId" : "305045",
+	"customerName" : "CHETE",
+	"customerFirstName" : "Lisa",
+	"customerPhoneNumber" : "0601020304",
+	"productSkuIds":"b17f1b97-2fa9-48a7-bb67-51b6a44ab1d6"
+}

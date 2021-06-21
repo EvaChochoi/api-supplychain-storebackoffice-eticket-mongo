@@ -1,0 +1,143 @@
+[
+  {
+    "id": "02",
+    "externalNodeId": "02",
+    "characteristics": {
+      "longDescription": {
+        "fr_FR": ""
+      },
+      "image": {
+        "fr_FR": ""
+      },
+      "visible": [
+        ""
+      ],
+      "clickToChatAllowed": false,
+      "affiliations": [
+        ""
+      ],
+      "publishable": true,
+      "zanoxId": "",
+      "shortDescription": {
+        "fr_FR": ""
+      },
+      "type": "",
+      "bundleDiscountPercentageDisplayThreshold": 5.0,
+      "sequence": 35.0,
+      "displayType": "",
+      "bundleDiscountEuroDisplayThreshold": 5.0,
+      "creditId": "",
+      "system": false,
+      "siteUrlPathSlug": {
+        "fr_FR": ""
+      },
+      "redirectionUrl": {
+        "fr_FR": ""
+      }
+    },
+    "label": {
+      "fr_FR": "TV Image Son"
+    },
+    "published": [
+      "SAP",
+      "WEB",
+      "STORE"
+    ],
+    "type": "SAP",
+    "salesOrganization": "OCFR"
+  },
+  {
+    "id": "0235",
+    "externalNodeId": "0235",
+    "characteristics": {
+      "longDescription": {
+        "fr_FR": ""
+      },
+      "image": {
+        "fr_FR": ""
+      },
+      "visible": [
+        ""
+      ],
+      "clickToChatAllowed": false,
+      "affiliations": [
+        ""
+      ],
+      "publishable": true,
+      "zanoxId": "",
+      "shortDescription": {
+        "fr_FR": ""
+      },
+      "type": "",
+      "bundleDiscountPercentageDisplayThreshold": 5.0,
+      "sequence": 35.0,
+      "displayType": "",
+      "bundleDiscountEuroDisplayThreshold": 5.0,
+      "creditId": "",
+      "system": false,
+      "siteUrlPathSlug": {
+        "fr_FR": ""
+      },
+      "redirectionUrl": {
+        "fr_FR": ""
+      }
+    },
+    "label": {
+      "fr_FR": "Appareil Photo"
+    },
+    "published": [
+      "SAP",
+      "WEB",
+      "STORE"
+    ],
+    "type": "SAP",
+    "salesOrganization": "OCFR"
+  },
+  {
+    "id": "023535",
+    "externalNodeId": "023535",
+    "characteristics": {
+      "longDescription": {
+        "fr_FR": ""
+      },
+      "image": {
+        "fr_FR": ""
+      },
+      "visible": [
+        ""
+      ],
+      "clickToChatAllowed": false,
+      "affiliations": [
+        ""
+      ],
+      "publishable": true,
+      "zanoxId": "",
+      "shortDescription": {
+        "fr_FR": ""
+      },
+      "type": "",
+      "bundleDiscountPercentageDisplayThreshold": 5.0,
+      "sequence": 35.0,
+      "displayType": "",
+      "bundleDiscountEuroDisplayThreshold": 5.0,
+      "creditId": "",
+      "system": false,
+      "siteUrlPathSlug": {
+        "fr_FR": ""
+      },
+      "redirectionUrl": {
+        "fr_FR": ""
+      }
+    },
+    "label": {
+      "fr_FR": "Objectif Photo"
+    },
+    "published": [
+      "SAP",
+      "WEB",
+      "STORE"
+    ],
+    "type": "SAP",
+    "salesOrganization": "OCFR"
+  }
+]

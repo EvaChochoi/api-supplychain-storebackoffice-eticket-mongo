@@ -1,0 +1,28 @@
+[
+  {
+    "id": "REM",
+    "lines" : [
+      {
+        "lang": "fr_FR",
+        "label": "Remise en magasin"
+      },
+      {
+        "lang": "en_US",
+        "label": "Given in stock"
+      }
+    ]
+  },
+  {
+    "id": "DRV",
+    "lines" : [
+      {
+        "lang": "fr_FR",
+        "label": "Commande Drive"
+      },
+      {
+        "lang": "en_US",
+        "label": "Drive order"
+      }
+    ]
+  }
+]

@@ -1,0 +1,3 @@
+include: 'https://gitlab.boul.svc.meshcore.net/ci-public/ci-templates/raw/master/apis/app-deploy-ci.yml'
+variables:
+  NAME: api-eticket-mongo

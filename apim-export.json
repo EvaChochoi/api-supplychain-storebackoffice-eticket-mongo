@@ -1,0 +1,227 @@
+{
+  "name": "api-supplychain-storebackoffice-eticket-mongo-v1",
+  "version": "1.0.0-SNAPSHOT",
+  "description": "API gérant la base MongoDB eticket",
+  "visibility": "PRIVATE",
+  "tags": [
+    "private"
+  ],
+  "paths": {
+    "/": [
+      {
+        "methods": [
+          "DELETE",
+          "GET",
+          "POST",
+          "PUT"
+        ],
+        "boulanger-auth-headers-policy": {},
+        "description": "Generate and push X-Auth request headers",
+        "enabled": true
+      }
+    ]
+  },
+  "gravitee": "1.0.0",
+  "flow_mode": "DEFAULT",
+  "services": {
+    "health-check": {
+      "enabled": true,
+      "trigger": {
+        "rate": 10,
+        "unit": "SECONDS"
+      },
+      "steps": [
+        {
+          "name": "default-step",
+          "request": {
+            "path": "/supervision/ping",
+            "method": "GET",
+            "fromRoot": false
+          },
+          "response": {
+            "assertions": [
+              "#response.status == 200"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "resources": [],
+  "properties": [],
+  "groups": [
+    "Reader - All BL",
+    "MAINTAINER",
+    "Sonde technique gravitee"
+  ],
+  "members": [
+    {
+      "source": "memory",
+      "sourceId": "admin",
+      "roles": [
+        "API_PRIMARY_OWNER"
+      ]
+    },
+    {
+      "source": "ldap",
+      "sourceId": "cn=EX1866,ou=users,dc=bl,dc=meta,dc=boul,dc=svc,dc=meshcore,dc=net",
+      "roles": "API_OWNER"
+    }
+  ],
+  "pages": [
+    {
+      "id": "66afea69-1152-4911-afea-69115299115c",
+      "name": "Aside",
+      "type": "SYSTEM_FOLDER",
+      "order": 0,
+      "published": true,
+      "lastModificationDate": 1615566011458,
+      "contentType": "application/json",
+      "homepage": false,
+      "parentPath": "",
+      "api": "f1f6d5ef-3906-4662-b6d5-ef39062662de"
+    },
+    {
+      "id": "0d8ae64d-0b18-4fb2-8ae6-4d0b18cfb263",
+      "name": "swagger api documentation",
+      "type": "SWAGGER",
+      "content": "{\"openapi\":\"3.0.1\",\"info\":{\"title\":\"api-supplychain-storebackoffice-eticket-mongo\",\"contact\":{},\"license\":{\"name\":\"(C) Copyright Boulanger S.A.\"}},\"servers\":[{\"url\":\"http://api-supplychain-storebackoffice-eticket-mongo-v1.apis.svc:8080\",\"description\":\"Generated server url\"}],\"tags\":[{\"name\":\"TicketController\",\"description\":\"Alimentation de la collection Ticket de la base MongoDB\"}],\"paths\":{\"/ticket/{eventId}\":{\"get\":{\"tags\":[\"TicketController\"],\"summary\":\"Fetch selected ticket to as authenticated user\",\"description\":\"Allow you to fetch a selected ticket\",\"operationId\":\"fetchTicket\",\"parameters\":[{\"name\":\"eventId\",\"in\":\"path\",\"description\":\"Event ID of the ticket\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"name\":\"lang\",\"in\":\"query\",\"description\":\"Language\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"responses\":{\"200\":{\"description\":\"Successful operation\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/Ticket\"}}}},\"400\":{\"description\":\"Invalid eventId supplied\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}},\"403\":{\"description\":\"Forbidden\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}},\"500\":{\"description\":\"Internal Server Error (probably due to a bad request)\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}}}},\"put\":{\"tags\":[\"TicketController\"],\"summary\":\"Update selected ticket status\",\"description\":\"Allow you to update the status of a selected ticket\",\"operationId\":\"updateTicketStatus\",\"parameters\":[{\"name\":\"eventId\",\"in\":\"path\",\"description\":\"Event ID of the ticket\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"name\":\"lang\",\"in\":\"query\",\"description\":\"Language\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/Ticket\"}}},\"required\":true},\"responses\":{\"200\":{\"description\":\"Successful operation\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/Ticket\"}}}},\"400\":{\"description\":\"Invalid ticketId supplied\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}},\"403\":{\"description\":\"Forbidden\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}},\"500\":{\"description\":\"Internal Server Error (probably due to a bad request)\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}}}}},\"/ticket/\":{\"post\":{\"tags\":[\"TicketController\"],\"summary\":\"Create a new ticket\",\"description\":\"Allow you to save a new ticket\",\"operationId\":\"createTicket\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/TicketToStore\"}}},\"required\":true},\"responses\":{\"201\":{\"description\":\"successful operation\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/StoredTicket\"}}}},\"403\":{\"description\":\"Forbidden\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}}}}},\"/stockslabels\":{\"get\":{\"tags\":[\"TicketController\"],\"summary\":\"Fetch the labels of stocks\",\"description\":\"Allow you to fetch the labels of stocks for the Front eTicket\",\"operationId\":\"fetchStocksLabels\",\"responses\":{\"200\":{\"description\":\"Successful operation\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/Ticket\"}}}},\"400\":{\"description\":\"Invalid eventId supplied\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}},\"403\":{\"description\":\"Forbidden\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}},\"500\":{\"description\":\"Internal Server Error (probably due to a bad request)\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}}}}},\"/site/{siteId}\":{\"get\":{\"tags\":[\"TicketController\"],\"summary\":\"Fetch all tickets with status from 1 to 3 to an authenticated user\",\"description\":\"Allow you to fetch all available tickets with the status 1, 2 and 3 for the ticket owner\",\"operationId\":\"fetchTickets\",\"parameters\":[{\"name\":\"siteId\",\"in\":\"path\",\"description\":\"Site ID of the user\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"name\":\"lang\",\"in\":\"query\",\"description\":\"Language\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"responses\":{\"200\":{\"description\":\"successful operation\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/Ticket\"}}}},\"403\":{\"description\":\"Forbidden\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}}}}},\"/parameters\":{\"get\":{\"tags\":[\"TicketController\"],\"summary\":\"Fetch the parameters\",\"description\":\"Allow you to fetch the parameters for the Front eTicket\",\"operationId\":\"fetchRefreshTime\",\"responses\":{\"200\":{\"description\":\"Successful operation\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/Ticket\"}}}},\"400\":{\"description\":\"Invalid eventId supplied\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}},\"403\":{\"description\":\"Forbidden\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}},\"500\":{\"description\":\"Internal Server Error (probably due to a bad request)\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/ErrorResponseJson\"}}}}}}}},\"components\":{\"schemas\":{\"Customer\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"phone\":{\"type\":\"string\"}}},\"Feedback\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"},\"quantity\":{\"type\":\"integer\",\"format\":\"int32\"}}},\"Hierarchy\":{\"type\":\"object\",\"properties\":{\"productLine\":{\"$ref\":\"#/components/schemas/Niveau\"},\"aisle\":{\"$ref\":\"#/components/schemas/Niveau\"},\"family\":{\"$ref\":\"#/components/schemas/Niveau\"}}},\"Niveau\":{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"string\"},\"label\":{\"type\":\"string\"}}},\"Product\":{\"type\":\"object\",\"properties\":{\"sapId\":{\"type\":\"string\"},\"skuId\":{\"type\":\"string\"},\"eans\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"quantity\":{\"type\":\"integer\",\"format\":\"int32\"},\"quantityToPrepareInThisSite\":{\"type\":\"integer\",\"format\":\"int32\"},\"conditionId\":{\"type\":\"string\"},\"photo\":{\"type\":\"string\"},\"label\":{\"type\":\"string\"},\"externalNodeId\":{\"type\":\"string\"}}},\"Ticket\":{\"type\":\"object\",\"properties\":{\"saleId\":{\"type\":\"string\"},\"line\":{\"type\":\"integer\",\"format\":\"int32\"},\"eventId\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"},\"deliveryModeCode\":{\"type\":\"string\"},\"deliveryModeLabel\":{\"type\":\"string\"},\"status\":{\"type\":\"integer\",\"format\":\"int32\"},\"tickerOwnerId\":{\"type\":\"string\"},\"ticketOwner\":{\"type\":\"string\"},\"creationDate\":{\"type\":\"string\"},\"notificationDate\":{\"type\":\"string\"},\"pickupDate\":{\"type\":\"string\"},\"siteId\":{\"type\":\"string\"},\"product\":{\"$ref\":\"#/components/schemas/Product\"},\"vendor\":{\"$ref\":\"#/components/schemas/Vendor\"},\"hierarchy\":{\"$ref\":\"#/components/schemas/Hierarchy\"},\"customer\":{\"$ref\":\"#/components/schemas/Customer\"},\"storageNumber\":{\"type\":\"string\"},\"feedback\":{\"$ref\":\"#/components/schemas/Feedback\"}}},\"Vendor\":{\"type\":\"object\",\"properties\":{\"personalNumber\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}}},\"ErrorJson\":{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"string\",\"description\":\"Error code\"},\"message\":{\"type\":\"string\",\"description\":\"Error description\"}},\"description\":\"An error\"},\"ErrorResponseJson\":{\"type\":\"object\",\"properties\":{\"errors\":{\"type\":\"array\",\"description\":\"Error list\",\"items\":{\"$ref\":\"#/components/schemas/ErrorJson\"}}},\"description\":\"Error list response wrapper\"},\"StoredTicket\":{\"type\":\"object\",\"properties\":{\"saleId\":{\"type\":\"string\"},\"line\":{\"type\":\"integer\",\"format\":\"int32\"},\"eventId\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"},\"deliveryModeCode\":{\"type\":\"string\"},\"status\":{\"type\":\"integer\",\"format\":\"int32\"},\"ticketOwnerId\":{\"type\":\"string\"},\"ticketOwner\":{\"type\":\"string\"},\"creationDate\":{\"type\":\"string\"},\"notificationDate\":{\"type\":\"string\"},\"pickupDate\":{\"type\":\"string\"},\"siteId\":{\"type\":\"string\"},\"product\":{\"$ref\":\"#/components/schemas/Product\"},\"vendor\":{\"$ref\":\"#/components/schemas/Vendor\"},\"customer\":{\"$ref\":\"#/components/schemas/Customer\"},\"storageNumber\":{\"type\":\"string\"},\"feedback\":{\"$ref\":\"#/components/schemas/Feedback\"}}},\"TicketToStore\":{\"type\":\"object\",\"properties\":{\"saleId\":{\"type\":\"string\"},\"line\":{\"type\":\"integer\",\"format\":\"int32\"},\"eventId\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"},\"deliveryModeCode\":{\"type\":\"string\"},\"status\":{\"type\":\"integer\",\"format\":\"int32\"},\"ticketOwnerId\":{\"type\":\"string\"},\"ticketOwner\":{\"type\":\"string\"},\"creationDate\":{\"type\":\"string\"},\"notificationDate\":{\"type\":\"string\"},\"pickupDate\":{\"type\":\"string\"},\"siteId\":{\"type\":\"string\"},\"product\":{\"$ref\":\"#/components/schemas/Product\"},\"vendor\":{\"$ref\":\"#/components/schemas/Vendor\"},\"customer\":{\"$ref\":\"#/components/schemas/Customer\"},\"storageNumber\":{\"type\":\"string\"},\"feedback\":{\"$ref\":\"#/components/schemas/Feedback\"}}}}}}\n",
+      "order": 1,
+      "lastContributor": "6e39a320-067a-4348-b9a3-20067a33481f",
+      "published": true,
+      "lastModificationDate": 1615566022051,
+      "contentType": "application/json",
+      "source": {
+        "type": "http-fetcher",
+        "configuration": {
+          "url": "http://api-supplychain-storebackoffice-eticket-mongo-v1.apis.svc:8080/v3/api-docs",
+          "useSystemProxy": false,
+          "fetchCron": null,
+          "autoFetch": false
+        }
+      },
+      "homepage": false,
+      "api": "f1f6d5ef-3906-4662-b6d5-ef39062662de"
+    }
+  ],
+  "plans": [
+    {
+      "name": "JWT - Collaborators Access - GraviteeAM",
+      "description": "Collaborator access to api-eticket for eTicket",
+      "validation": "MANUAL",
+      "security": "JWT",
+      "securityDefinition": "{\"signature\":\"RSA_RS256\",\"publicKeyResolver\":\"JWKS_URL\",\"extractClaims\":true,\"propagateAuthHeader\":true,\"resolverParameter\":\"${GRAVITEE_AM_COLLAB_JWK_URL}\"}",
+      "characteristics": [],
+      "order": 1,
+      "paths": {
+        "/": [
+          {
+            "methods": [
+              "GET",
+              "DELETE",
+              "PUT",
+              "POST"
+            ],
+            "resource-filtering": {
+              "blacklist": [
+                {
+                  "pattern": "/**/supervision/*",
+                  "methods": [
+                    "GET",
+                    "OPTIONS"
+                  ]
+                }
+              ],
+              "whitelist": []
+            },
+            "enabled": true
+          }
+        ]
+      },
+      "tags": [
+        "private"
+      ],
+      "comment_required": false,
+      "selection_rule": "#context.attributes['jwt'].claims['iss'] == '${GRAVITEE_AM_COLLAB_SELECTOR}'"
+    }
+  ],
+  "metadata": [
+    {
+      "key": "email-support",
+      "name": " Bertrand LANCELOT",
+      "format": "MAIL",
+      "value": "bertrand.lancelot@prestataires.boulanger.com",
+      "defaultValue": "bertrand.lancelot@prestataires.boulanger.com",
+      "apiId": "f1f6d5ef-3906-4662-b6d5-ef39062662de"
+    }
+  ],
+  "id": "f1f6d5ef-3906-4662-b6d5-ef39062662de",
+  "path_mappings": [
+    "/"
+  ],
+  "proxy": {
+    "virtual_hosts": [
+      {
+        "path": "/supplychain/storebackoffice/api-supplychain-storebackoffice-eticket-mongo-v1"
+      }
+    ],
+    "strip_context_path": false,
+    "cors": {
+      "enabled": true,
+      "allowCredentials": true,
+      "allowHeaders": [
+        "x-api-key",
+        "content-type",
+        "accept",
+        "authorization",
+        "x-auth-token"
+      ],
+      "allowMethods": [
+        "POST",
+        "GET",
+        "PUT"
+      ],
+      "exposeHeaders": [],
+      "maxAge": -1
+    },
+    "preserve_host": false,
+    "groups": [
+      {
+        "name": "default-group",
+        "endpoints": [
+          {
+            "name": "default",
+            "target": "http://api-supplychain-storebackoffice-eticket-mongo-v1.apis.svc:8080",
+            "weight": 1,
+            "backup": false,
+            "type": "HTTP",
+            "http": {
+              "connectTimeout": 5000,
+              "idleTimeout": 60000,
+              "keepAlive": true,
+              "readTimeout": 10000,
+              "pipelining": false,
+              "maxConcurrentConnections": 100,
+              "useCompression": true,
+              "followRedirects": false
+            }
+          }
+        ],
+        "load_balancing": {
+          "type": "ROUND_ROBIN"
+        },
+        "http": {
+          "connectTimeout": 5000,
+          "idleTimeout": 60000,
+          "keepAlive": true,
+          "readTimeout": 10000,
+          "pipelining": false,
+          "maxConcurrentConnections": 100,
+          "useCompression": true,
+          "followRedirects": false
+        }
+      }
+    ]
+  },
+  "response_templates": {}
+}

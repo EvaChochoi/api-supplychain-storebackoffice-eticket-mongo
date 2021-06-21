@@ -1,0 +1,57 @@
+{
+  "saleId": "F905010453",
+  "line": 1,
+  "eventId": "F905010453-1",
+  "type": "RESA WEB",
+  "deliveryModeCode": "REM",
+  "deliveryModeLabel": "Remise en magasin",
+  "status": 1,
+  "ticketOwnerId": "NA",
+  "ticketOwner": null,
+  "creationDate": "2021-01-19T09:00:00.000Z",
+  "pickupDate": "2021-01-26T09:00:00.000Z",
+  "notificationDate": "2021-01-19T09:00:10.000Z",
+  "siteId": "F224",
+  "product": {
+    "sapId": "000000000000107069",
+    "skuId": "5c3f7478-7137-4b7e-a1aa-7720a651d6b9",
+    "eans": [
+      "85126509279"
+    ],
+    "quantity": 1,
+    "quantityToPrepareInThisSite": 2,
+    "conditionId": "11",
+    "photo": "https://boulanger.scene7.com/is/image/Boulanger/0085126509279_h_f_l_0",
+    "label": "Objectif SIGMA 70-300 F4-5,6 DGMacroCano",
+    "externalNodeId": "02353525G"
+  },
+  "vendor": {
+    "personalNumber": null,
+    "name": null
+  },
+  "storageNumber": 3,
+  "customer": {
+    "id": "305045",
+    "name": "Jean TEST",
+    "phone": "0634546534"
+  },
+  "hierarchy": {
+    "productLine": {
+      "code": "02",
+      "label": "TV Image Son"
+    },
+    "aisle": {
+      "code": "0235",
+      "label": "Appareil Photo"
+    },
+    "family": {
+      "code": "023535",
+      "label": "Objectif Photo"
+    }
+  },
+  "feedback": {
+    "result": null,
+    "reason": null,
+    "quantity": null
+  }
+}

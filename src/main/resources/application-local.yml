@@ -1,0 +1,15 @@
+boulanger:
+  swagger:
+    enabled: true
+
+spring:
+  data:
+    mongodb:
+      database: testTicket
+      writeConcern: majority
+
+
+
+scheduling:
+  enabled: false
+

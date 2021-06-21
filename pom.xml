@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.boulanger.supplychain.storebackoffice.eticket</groupId>
+    <artifactId>api-supplychain-storebackoffice-eticket-mongo</artifactId>
+    <version>1.2.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>api-supplychain-storebackoffice-eticket-mongo</name>
+    <description>API gérant la base MongoDB</description>
+
+    <scm>
+        <url>${env.CI_REPOSITORY_URL}</url>
+        <connection>scm:git:${env.CI_REPOSITORY_URL}</connection>
+        <developerConnection>scm:git:${env.CI_REPOSITORY_URL}</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <parent>
+        <groupId>com.boulanger.platodin</groupId>
+        <artifactId>platodin-parent</artifactId>
+        <version>2.0.0</version>
+    </parent>
+
+    <properties>
+
+        <gatling.simulations.package>com.boulanger.gatling.simulations</gatling.simulations.package>
+        <gatling.simulation.name>ApiFooSimulation</gatling.simulation.name>
+    </properties>
+
+    <dependencies>
+        <!-- Platodin -->
+        <dependency>
+            <groupId>com.boulanger.platodin</groupId>
+            <artifactId>platodin-webmvc</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.boulanger.platodin</groupId>
+            <artifactId>platodin-webclient</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.boulanger.platodin</groupId>
+            <artifactId>platodin-websecurity</artifactId>
+        </dependency>
+        
+        
+        <dependency>
+            <groupId>com.boulanger.platodin</groupId>
+            <artifactId>platodin-mongo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
+            <version>2.2.4.RELEASE</version>
+        </dependency>
+
+
+
+        <!-- Tests -->
+        <dependency>
+            <groupId>com.boulanger.platodin</groupId>
+            <artifactId>platodin-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling.highcharts</groupId>
+            <artifactId>gatling-charts-highcharts</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.pauldijou</groupId>
+            <artifactId>jwt-core_2.12</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+    <resources>
+        <resource>
+            <filtering>true</filtering>
+            <directory>src/test/resources</directory>
+            <includes>
+                <include>**/*.properties</include>
+            </includes>
+            <excludes>
+                <exclude>**/*local.properties</exclude>
+            </excludes>
+        </resource>
+        <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>**/*.properties</include>
+                <include>**/*.xml</include>
+            </includes>
+        </resource>
+    </resources>
+
+    
+    <profiles>
+        <profile>
+            <id>bench</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.gatling</groupId>
+                        <artifactId>gatling-maven-plugin</artifactId>
+                        <version>${gatling-plugin.version}</version>
+                        <configuration>
+                            <simulationClass>${gatling.simulations.package}.${gatling.simulation.name}</simulationClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

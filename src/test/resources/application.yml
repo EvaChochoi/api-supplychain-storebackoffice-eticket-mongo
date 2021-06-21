@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: api-supplychain-storebackoffice-ticketprepa-mongo
+
+  data:
+    mongodb:
+      database: testTicket
+      port: 27017
+      writeConcern: majority
+  jackson:
+    default-property-inclusion: non_empty
+    deserialization:
+      fail-on-unknown-properties: false
+
+
+
+
+scheduling:
+  enabled: false
+
+#logging:
+#  config: classpath:logging/logback-test.xml

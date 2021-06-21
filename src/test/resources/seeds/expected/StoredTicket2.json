@@ -1,0 +1,14 @@
+{
+	"eventDate" : "2021-06-11T10:29:34.000Z",
+	"isFromDrive" : true,
+	"siteId" : "F022",
+	"driveTerminal" : 2,
+	"saleId" : "F905010203",
+	"line" : 2,
+	"productSapId" : "000000000001000001",
+	"quantity" : 1,
+	"customerId" : "305045",
+	"customerName" : "CHETE",
+	"customerFirstName" : "Lisa",
+	"customerPhoneNumber" : "0601020304",	
+}

@@ -1,0 +1,13 @@
+
+# Le context path de l'API.
+# Obligatoire.
+path: /supplychain/storebackoffice/api-supplychain-storebackoffice-eticket-mongo
+
+# Description de l'api.
+# Optionnel.
+description: API gérant la base MongoDB eticket
+
+# Tags permettant de définir si l'api doit être déployée sur les passerelles publique et privée de Gravitee.
+# Ce champs est obligatoire et ne doit pas être vide.
+sharding-tags:
+  - private
