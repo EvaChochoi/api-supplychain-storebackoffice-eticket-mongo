@@ -7,6 +7,7 @@
 
 package com.boulanger.eticket.apimongo.controller;
 
+import com.boulanger.eticket.apimongo.domain.Constants;
 import com.boulanger.eticket.apimongo.domain.bff.Ticket;
 import com.boulanger.eticket.apimongo.domain.kafkatomongo.TicketToStore;
 import com.boulanger.eticket.apimongo.domain.mongo.Parameters;
@@ -28,6 +29,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.bouncycastle.util.Store;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -95,8 +97,8 @@ public class TicketController {
 	 * @param withdrawalTicket a {@link WithdrawalTicket}
 	 * @return a copy of the {@link WithdrawalTicket}
 	 */
-	@PostMapping("/ticketWithdrawal")
-	@ResponseBody
+	@PostMapping("/withdrawalTicket")
+/*	@ResponseBody
 	//On ajoute une authorization
 	@PreAuthorize("isAuthenticated()")
 	//On indentifie les erreurs
@@ -110,7 +112,7 @@ public class TicketController {
 					@ApiResponse(responseCode = "201", description = "successful operation", content = @Content(schema = @Schema(implementation = StoredTicket.class))),
 					@ApiResponse(responseCode = "403", description = "Forbidden", content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
 			}
-	)
+	)*/
 	//Création de la méthode
 	public List<StoredTicket> createWithdrawalTicket(@RequestBody WithdrawalTicket withdrawalTicket){
 

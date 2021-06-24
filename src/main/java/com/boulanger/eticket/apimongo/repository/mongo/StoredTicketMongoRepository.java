@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -30,7 +29,7 @@ public interface StoredTicketMongoRepository extends MongoRepository<StoredTicke
 	StoredTicket findByEventId(final String eventId);
 
 	/**
-	 * Find a list of stored ticket in this site for status = 1, 2, and for this user , status = 3
+	 * Find a list of stored ticket in this site for status = 1,2, and for this user, status = 3
 	 * @param siteId user site
 	 * @param ticketOwnerId userId
 	 * @return a list of {@link StoredTicket}

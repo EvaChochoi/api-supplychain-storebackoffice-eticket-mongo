@@ -27,6 +27,7 @@ public class WithdrawalTicket {
 	private Boolean isFromDrive;
 	private String siteId;
 	private Integer driveTerminal;
+	//private Boolean isWithdrawalTicket;
 	private List<WithdrawalLine> lines;
 	private String saleId;
 	private String customerId;
@@ -39,7 +40,7 @@ public class WithdrawalTicket {
 	@Value
 	@Builder
 	public static class WithdrawalLine {
-		private Integer lineId;
+		private int lineId;
 		private String productSapId;
 		private int quantity;
 

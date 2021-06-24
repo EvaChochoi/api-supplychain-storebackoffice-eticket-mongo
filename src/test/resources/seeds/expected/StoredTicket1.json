@@ -4,7 +4,7 @@
 	"siteId" : "F022",
 	"driveTerminal" : 2,
 	"saleId" : "F905010203",
-	"line" : 1,
+	"lineId" : 1,
 	"productSapId" : "000000000001000000",
 	"quantity" : 3,
 	"customerId" : "305045",

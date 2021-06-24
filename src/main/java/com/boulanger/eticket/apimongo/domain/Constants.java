@@ -23,6 +23,7 @@ public final class Constants {
 		public static final String ACQUITTEMENT_KO = "Acquittement KO";
 		public static final String TERMINE = "Terminé";
 
+
 		private TicketStatus() {
 			throw new IllegalStateException(CLASS_STATUS);
 		}

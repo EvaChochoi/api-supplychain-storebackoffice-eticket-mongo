@@ -13,7 +13,6 @@ import lombok.With;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.validation.constraints.NotNull;
 import java.time.Instant;
 import java.util.List;
 
@@ -40,6 +39,7 @@ public class StoredTicket {
 	private String pickupDate;
 	private String siteId;
 	private Boolean isFromDrive;
+	private Boolean isWithdrawalTicket;
 	private Integer driveTerminal;
 	private String sapId;
 	private int quantity;

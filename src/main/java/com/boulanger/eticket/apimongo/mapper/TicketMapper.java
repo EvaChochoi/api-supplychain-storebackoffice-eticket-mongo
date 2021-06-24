@@ -307,6 +307,7 @@ public class TicketMapper {
 				.isFromDrive(withdrawalTicket.getIsFromDrive())
 				.siteId(withdrawalTicket.getSiteId())
 				.driveTerminal(withdrawalTicket.getDriveTerminal())
+				//.isWithdrawalTicket(withdrawalTicket.getIsWithdrawalTicket())
 				.saleId(withdrawalTicket.getSaleId())
 				.line(withdrawalLine.getLineId())
 				.eventId(withdrawalTicket.getSaleId()+"-"+ withdrawalLine.getLineId()+"-W")
@@ -317,6 +318,8 @@ public class TicketMapper {
 						.firstName(withdrawalTicket.getCustomerFirstName())
 						.phoneNumber(withdrawalTicket.getCustomerPhoneNumber())
 						.build())
+				.quantity(withdrawalLine.getQuantity())
+				.sapId(withdrawalLine.getProductSapId())
 				.build();
 
 	}

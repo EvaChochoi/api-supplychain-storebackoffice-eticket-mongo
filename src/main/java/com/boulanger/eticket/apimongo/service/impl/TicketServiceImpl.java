@@ -99,6 +99,7 @@ public class TicketServiceImpl implements TicketService {
 			default:
 				historisationBuilder.type("inconnu");
 				break;
+
 		}
 		var historisation =  historisationBuilder.build();
 		historisationService.register(historisation);
